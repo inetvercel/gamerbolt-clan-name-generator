@@ -466,7 +466,7 @@ export default function ClanNameGenerator() {
               value={keyword}
               onChange={(e) => setKeyword(e.target.value)}
               placeholder="e.g., Dragon, Ninja, Shadow"
-              className="bg-gray-100 text-gray-900 border-gray-300 focus:border-yellow-500 focus:ring-yellow-500 transition-all duration-200"
+              className="bg-gray-100 text-gray-900 border-gray-300 focus:border-amber-500 focus:ring-amber-500 transition-all duration-200"
             />
           </div>
 
@@ -482,7 +482,7 @@ export default function ClanNameGenerator() {
                   variant="outline"
                   size="default"
                   disabled={isGenerating || cooldownRemaining > 0 || isRateLimited}
-                  className="bg-gradient-to-r from-yellow-50 to-orange-50 border-yellow-400 hover:from-yellow-100 hover:to-orange-100 hover:border-yellow-500 hover:shadow-md text-gray-900 font-semibold transition-all duration-200 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2"
+                  className="bg-gradient-to-r from-amber-100 to-yellow-100 border-amber-500 hover:from-amber-200 hover:to-yellow-200 hover:border-amber-600 hover:shadow-lg text-gray-900 font-semibold transition-all duration-200 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2"
                 >
                   <span className="mr-2 text-lg">{tag.emoji}</span>
                   {tag.label}
@@ -496,7 +496,7 @@ export default function ClanNameGenerator() {
             <RadioGroup value={nameType} onValueChange={setNameType} className="flex flex-wrap gap-2 sm:gap-4">
               {["default", "funny", "aggressive", "futuristic", "fantasy"].map((type) => (
                 <div key={type} className="flex items-center space-x-2">
-                  <RadioGroupItem value={type} id={type} className="text-yellow-600" />
+                  <RadioGroupItem value={type} id={type} className="text-amber-600" />
                   <Label htmlFor={type} className="capitalize text-sm sm:text-base">
                     {type}
                   </Label>
@@ -510,7 +510,7 @@ export default function ClanNameGenerator() {
             <RadioGroup value={nameLength} onValueChange={setNameLength} className="flex flex-wrap gap-2 sm:gap-4">
               {["short", "medium", "long", "varied"].map((length) => (
                 <div key={length} className="flex items-center space-x-2">
-                  <RadioGroupItem value={length} id={length} className="text-yellow-600" />
+                  <RadioGroupItem value={length} id={length} className="text-amber-600" />
                   <Label htmlFor={length} className="capitalize text-sm sm:text-base">
                     {length}
                   </Label>
@@ -521,7 +521,7 @@ export default function ClanNameGenerator() {
 
           <Button
             onClick={handleGenerate}
-            className="w-full bg-yellow-600 text-white hover:bg-yellow-700 font-bold py-2 sm:py-3 text-base sm:text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+            className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 text-white hover:from-amber-600 hover:to-yellow-600 font-bold py-2 sm:py-3 text-base sm:text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shadow-md hover:shadow-lg"
             disabled={isGenerating || cooldownRemaining > 0 || isRateLimited}
           >
             {isGenerating
@@ -534,7 +534,7 @@ export default function ClanNameGenerator() {
 
         <div className="mt-6 sm:mt-8">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-yellow-600 mb-2 sm:mb-0">Your Clan Names:</h2>
+            <h2 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent mb-2 sm:mb-0">Your Clan Names:</h2>
             <div className="flex flex-wrap gap-2">
               <Button
                 onClick={() => setShowSavedNames(!showSavedNames)}
@@ -564,7 +564,7 @@ export default function ClanNameGenerator() {
               <Button
                 onClick={handleRefreshAll}
                 variant="outline"
-                className="text-yellow-600 border-yellow-600 hover:bg-yellow-600 hover:text-white text-sm sm:text-base bg-transparent disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 hover:scale-105 active:scale-95"
+                className="text-amber-600 border-amber-600 hover:bg-amber-600 hover:text-white text-sm sm:text-base bg-transparent disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 hover:scale-105 active:scale-95"
                 disabled={isGenerating || cooldownRemaining > 0 || isRateLimited}
               >
                 <RefreshCw size={16} className="mr-2" />
@@ -629,10 +629,10 @@ export default function ClanNameGenerator() {
                     variant="outline"
                     size="sm"
                     onClick={() => handleCopyName(name)}
-                    className={`border-yellow-600 hover:text-white p-1 sm:p-2 transition-all duration-200 hover:scale-110 active:scale-95 ${
+                    className={`p-1 sm:p-2 transition-all duration-200 hover:scale-110 active:scale-95 ${
                       copiedName === name
-                        ? "bg-green-600 text-white border-green-600 scale-110"
-                        : "text-yellow-600 hover:bg-yellow-600"
+                        ? "bg-green-600 text-white border-green-600 scale-110 hover:bg-green-700"
+                        : "text-amber-600 border-amber-600 hover:bg-amber-600 hover:text-white hover:border-amber-700"
                     }`}
                   >
                     {copiedName === name ? (
