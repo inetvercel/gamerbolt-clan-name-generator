@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Name Generator</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+            border: none;
+            height: 100vh;
+            min-height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="generatorFrame" src="https://your-vercel-app-url.vercel.app/embed" allowfullscreen></iframe>
+    <script>
+        const iframe = document.getElementById('generatorFrame');
+        let resizeTimeout;
+
+        function sendContainerHeight() {
+            const height = window.innerHeight;
+            iframe.contentWindow.postMessage({ type: 'containerHeight', height }, '*');
+        }
+
+        function resizeIframe() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                iframe.style.height = 'auto';
+                iframe.style.height = (iframe.contentWindow.document.documentElement.scrollHeight + 20) + 'px';
+            }, 100);
+        }
+
+        window.addEventListener('message', function(e) {
+            if (e.data && e.data.type === 'contentChanged') {
+                resizeIframe();
+            }
+        }, false);
+
+        window.addEventListener('resize', sendContainerHeight);
+        sendContainerHeight();
+
+        // Ensure iframe is resized after initial load
+        iframe.onload = resizeIframe;
+    </script>
+</body>
+</html>
