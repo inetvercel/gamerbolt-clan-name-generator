@@ -620,11 +620,11 @@ export default function ClanNameGenerator() {
             {generatedNames.map((name, index) => (
               <div
                 key={index}
-                className="bg-gray-100 p-3 sm:p-4 rounded-lg hover:bg-gray-200 transition-all duration-200 flex justify-between items-center hover:shadow-md transform hover:-translate-y-0.5"
+                className="bg-gray-100 p-2 sm:p-3 rounded-lg hover:bg-gray-200 transition-all duration-200 flex justify-between items-center hover:shadow-md transform hover:-translate-y-0.5"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
-                <span className="text-sm sm:text-base lg:text-lg break-all">{name}</span>
-                <div className="flex space-x-1 sm:space-x-2 ml-2 flex-shrink-0">
+                <span className="text-xs sm:text-sm lg:text-base truncate flex-1 mr-2">{name}</span>
+                <div className="flex space-x-1 ml-2 flex-shrink-0">
                   <Button
                     variant="outline"
                     size="sm"
